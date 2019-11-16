@@ -1,22 +1,14 @@
 <?php include("cabecalho.php"); ?>
 
 <?php
-    if(isset($_GET["login"]) && $_GET["login"]==true) {
+    if(isset($_COOKIE["usuario_logado"])) {
 ?>
-        <p class="alert-success">Logado com sucesso!</p>
+        <p class="text-success">Você está logado como <?=
+        $_COOKIE["usuario_logado"] ?></p>
 <?php
-    }
+    }else{
 ?>
-<?php
-    if(isset($_GET["login"]) && $_GET["login"]==false) {
-?>
-        <p class="alert-danger">Usuário ou senha inválida!</p>
-<?php
-    }  
-?>
-
-
-    <form action="login.php" method="post">
+<form action="login.php" method="post">
         <table class="table">
             <tr>
                 <td>Email</td>
@@ -31,6 +23,22 @@
             </tr>
         </table>
     </form>
+<?php
+    }
+?>
+
+
+
+<?php
+    if(isset($_GET["login"]) && $_GET["login"]==false) {
+?>
+        <p class="alert-danger">Usuário ou senha inválida!</p>
+<?php
+    }  
+?>
+
+
+    
 
 
 
