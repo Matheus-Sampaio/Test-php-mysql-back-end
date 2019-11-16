@@ -14,6 +14,7 @@ $produtos = listaProdutos($conexao);
             <td><?= $produto['preco'] ?></td>
             <td><?= $produto['descricao'] ?></td>
             <td><a href="remove-produto.php?id=<?= $produto['id'] ?>" class="btn btn-danger">Remover</a>
+            <td><a class="btn btn-primary" href="produto-altera-formulario.php?id=<?=$produto['id']?>">alterar</a>
         </tr>
     <?php
     endforeach
